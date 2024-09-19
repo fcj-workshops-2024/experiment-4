@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+
+  merge_group:
+    branches: [main]
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Extend the workflow duration by an additional 10 seconds.
+        run: sleep 10
+
+      - name: Show main.py content
+        run: cat main.py
+
+      - name: Show test.py content
+        run: cat test.py
+
+      - name: Run tests
+        run: python test.py
