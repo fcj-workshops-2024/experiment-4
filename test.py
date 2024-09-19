@@ -9,5 +9,11 @@ class TestGet1sFunction(unittest.TestCase):
         expected_result = [1] * 10
         self.assertEqual(result, expected_result)
 
+    def test_with_default(self):
+        """Test the function with default."""
+        result = get_1s()
+        expected_result = [1] * 30
+        self.assertEqual(result, expected_result)
+
 if __name__ == "__main__":
     unittest.main()
